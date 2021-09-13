@@ -2,11 +2,11 @@ package leetcode
 
 import (
 	"container/heap"
-	"golang-acm/common"
+	"golang-acm/util"
 )
 
 //
-//func MergeKLists(lists []*common.ListNode) *common.ListNode {
+//func MergeKLists(lists []*util.ListNode) *util.ListNode {
 //	if len(lists) == 0 {
 //		return nil
 //	}
@@ -15,7 +15,7 @@ import (
 //	}
 //	newNode := lists[0]
 //	for i := 0; i < len(lists)-1; i++ {
-//		newNode = acm.Merge(newNode, lists[i+1])
+//		newNode = basic.Merge(newNode, lists[i+1])
 //		for newNode != nil {
 //			fmt.Printf(strconv.Itoa(newNode.Val))
 //			newNode = newNode.Next
@@ -26,12 +26,12 @@ import (
 //	return newNode
 //}
 //
-//func MergeKLists2(lists []*common.ListNode) *common.ListNode {
+//func MergeKLists2(lists []*util.ListNode) *util.ListNode {
 //	h := recursion(lists, 0, len(lists)-1)
 //	return h
 //}
 //
-//func recursion(lists []*common.ListNode, left, right int) *common.ListNode {
+//func recursion(lists []*util.ListNode, left, right int) *util.ListNode {
 //	if(left == right){
 //		return lists[left]
 //	}
@@ -40,7 +40,7 @@ import (
 //	leftList := recursion(lists, left, mid)
 //	rightList := recursion(lists, mid+1, right)
 //	//fmt.Println(leftList.Val,rightList.Val)
-//	return acm.Merge(leftList, rightList)
+//	return basic.Merge(leftList, rightList)
 //}
 
 /**
@@ -50,7 +50,7 @@ import (
  *     Next *ListNode
  * }
  */
-type ListNodes []*common.ListNode
+type ListNodes []*util.ListNode
 
 func (l *ListNodes) Len() int {
 	return len(*l)
@@ -72,10 +72,10 @@ func (l *ListNodes) Pop() interface{} {
 }
 
 func (l *ListNodes) Push(x interface{}) {
-	*l = append(*l, x.(*common.ListNode))
+	*l = append(*l, x.(*util.ListNode))
 }
 
-func mergeKLists3(lists []*common.ListNode) *common.ListNode {
+func mergeKLists3(lists []*util.ListNode) *util.ListNode {
 	listNodes := &ListNodes{}
 	heap.Init(listNodes)
 	for _, v := range lists {
@@ -83,10 +83,10 @@ func mergeKLists3(lists []*common.ListNode) *common.ListNode {
 			heap.Push(listNodes, v)
 		}
 	}
-	head := &common.ListNode{}
+	head := &util.ListNode{}
 	idx := head
 	for listNodes.Len() > 0 {
-		val := heap.Pop(listNodes).(*common.ListNode)
+		val := heap.Pop(listNodes).(*util.ListNode)
 		idx.Next = val
 		if val.Next != nil {
 			heap.Push(listNodes, val.Next)

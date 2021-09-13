@@ -1,15 +1,15 @@
 package leetcode
 
 import (
-	"golang-acm/common"
+	"golang-acm/util"
 )
 
-func ReverseList(head *common.ListNode) *common.ListNode {
+func ReverseList(head *util.ListNode) *util.ListNode {
 	if head == nil {
 		return head
 	}
 
-	var prev *common.ListNode
+	var prev *util.ListNode
 	curr := head
 	for curr != nil {
 		next := curr.Next
@@ -22,7 +22,7 @@ func ReverseList(head *common.ListNode) *common.ListNode {
 
 }
 
-func ReverseList2(head *common.ListNode) *common.ListNode {
+func ReverseList2(head *util.ListNode) *util.ListNode {
 	if head.Next == nil {
 		return head
 	}

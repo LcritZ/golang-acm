@@ -2,7 +2,7 @@ package leetcode
 
 import (
 	"fmt"
-	"golang-acm/common"
+	"golang-acm/util"
 	"math"
 )
 
@@ -31,7 +31,7 @@ func CoinChange(coins []int, amount int) int {
 			//0, 0, 1, 0, 1, 0, 1, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 3
 			//0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 3
 			if i >= coins[j] {
-				dp[i] = common.Min(dp[i], dp[i-coins[j]] + 1)
+				dp[i] = util.Min(dp[i], dp[i-coins[j]] + 1)
 			}
 		}
 	}
@@ -57,7 +57,7 @@ func coinDp(n int, coins []int) int {
 		if subproblem == -1{
 			continue
 		}
-		res = common.Min(res, 1 + subproblem)
+		res = util.Min(res, 1 + subproblem)
 	}
 
 	if res != math.MaxInt32 {
@@ -76,7 +76,7 @@ func CoinChange2(coins []int, amount int) int {
 		dp[i] = amount + 1
 		for j := 0; j < n; j++ {
 			if coins[j] <= i {
-				dp[i] = common.Min(dp[i], dp[i-coins[j]]+1)
+				dp[i] = util.Min(dp[i], dp[i-coins[j]]+1)
 			}
 		}
 	}

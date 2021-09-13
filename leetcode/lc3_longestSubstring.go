@@ -2,7 +2,7 @@ package leetcode
 
 import (
 	"fmt"
-	"golang-acm/common"
+	"golang-acm/util"
 )
 
 /**
@@ -24,7 +24,7 @@ func LengthOfLongestSubstring(s string) int {
 		for ; j < len(s) && charMap[s[j]] == 0; j++ {
 			charMap[s[j]]++
 		}
-		ans = common.Max(ans, j-i)
+		ans = util.Max(ans, j-i)
 		if j == len(s) {
 			break
 		}
@@ -45,7 +45,7 @@ func GF_LengthOfLongestSubstring(s string) int {
 		for ; j < len(s) && charMap[s[j]] == 0; j++ {
 			charMap[s[j]]++
 		}
-		ans = common.Max(ans, j-i)
+		ans = util.Max(ans, j-i)
 		if j == len(s) {
 			break
 		}
@@ -69,7 +69,7 @@ func LengthOfLongestSubstring2(s string) int {
 			charCountMap[s[r]]++
 		}
 		fmt.Println(r)
-		ans = common.Max(ans, r - l)
+		ans = util.Max(ans, r - l)
 		if r == n {
 			break
 		}
@@ -95,9 +95,9 @@ func LengthOfLongestSubstring3(s string) int {
 	dp[0] = 0 // [0...0]不重复
 	for i := 1; i < n; i++ {
 		// i向前最远能推到哪里？1）i-1向前推到的位置；2）[i]上一次出现的位置的下一个位置；二者取决于瓶颈：较大者（最靠近i的）
-		dp[i] = common.Max(dp[i-1], lastIndexMap[s[i]]+1)
+		dp[i] = util.Max(dp[i-1], lastIndexMap[s[i]]+1)
 		lastIndexMap[s[i]] = i
-		ans = common.Max(ans, i - dp[i] + 1)
+		ans = util.Max(ans, i - dp[i] + 1)
 	}
 	return ans
 }

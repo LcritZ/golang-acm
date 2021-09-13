@@ -1,10 +1,10 @@
 package leetcode
 
 import (
-	"golang-acm/common"
+	"golang-acm/util"
 )
 
-func getPath(root, target *common.TreeNode) (path []*common.TreeNode) {
+func getPath(root, target *util.TreeNode) (path []*util.TreeNode) {
 	node := root
 	for node != target {
 		path = append(path, node)
@@ -18,7 +18,7 @@ func getPath(root, target *common.TreeNode) (path []*common.TreeNode) {
 	return
 }
 
-func lowestCommonAncestor(root, p, q *common.TreeNode) (ancestor *common.TreeNode) {
+func lowestCommonAncestor(root, p, q *util.TreeNode) (ancestor *util.TreeNode) {
 	pathP := getPath(root, p)
 	pathQ := getPath(root, q)
 	for i := 0; i < len(pathP) && i < len(pathQ) && pathP[i] == pathQ[i]; i++ {
@@ -27,7 +27,7 @@ func lowestCommonAncestor(root, p, q *common.TreeNode) (ancestor *common.TreeNod
 	return
 }
 
-func lowestCommonAncestor2(root, p, q *common.TreeNode) (ancestor *common.TreeNode) {
+func lowestCommonAncestor2(root, p, q *util.TreeNode) (ancestor *util.TreeNode) {
 	ancestor = root
 	for {
 		if p.Val < ancestor.Val && q.Val < ancestor.Val {

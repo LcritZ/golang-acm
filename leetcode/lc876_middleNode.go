@@ -1,7 +1,7 @@
 package leetcode
 
 import (
-	"golang-acm/common"
+	"golang-acm/util"
 )
 
 /**
@@ -14,7 +14,7 @@ import (
 2
 2,3
  */
-func middleNode(head *common.ListNode) *common.ListNode {
+func middleNode(head *util.ListNode) *util.ListNode {
 	if head == nil {
 		return head
 	}

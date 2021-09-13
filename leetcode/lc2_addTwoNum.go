@@ -1,11 +1,11 @@
 package leetcode
 
 import (
-	"golang-acm/common"
+	"golang-acm/util"
 )
 
-func GF_AddTwoNumbers(l1, l2 *common.ListNode) (head *common.ListNode) {
-	var tail *common.ListNode
+func GF_AddTwoNumbers(l1, l2 *util.ListNode) (head *util.ListNode) {
+	var tail *util.ListNode
 	carry := 0
 	for l1 != nil || l2 != nil {
 		n1, n2 := 0, 0
@@ -20,22 +20,22 @@ func GF_AddTwoNumbers(l1, l2 *common.ListNode) (head *common.ListNode) {
 		sum := n1 + n2 + carry
 		sum, carry = sum%10, sum/10
 		if head == nil {
-			head = &common.ListNode{Val: sum}
+			head = &util.ListNode{Val: sum}
 			tail = head
 		} else {
-			tail.Next = &common.ListNode{Val: sum}
+			tail.Next = &util.ListNode{Val: sum}
 			tail = tail.Next
 		}
 	}
 	if carry > 0 {
-		tail.Next = &common.ListNode{Val: carry}
+		tail.Next = &util.ListNode{Val: carry}
 	}
 	return
 }
 
-func AddTwoNumbers(l1, l2 *common.ListNode) *common.ListNode {
-	var tail *common.ListNode
-	var head *common.ListNode
+func AddTwoNumbers(l1, l2 *util.ListNode) *util.ListNode {
+	var tail *util.ListNode
+	var head *util.ListNode
 	carry := 0
 
 	for l1 != nil || l2 != nil {
@@ -52,19 +52,19 @@ func AddTwoNumbers(l1, l2 *common.ListNode) *common.ListNode {
 		sum = (v1+v2+carry)%10
 		carry = (v1+v2+carry)/10
 		if head == nil {
-			head = &common.ListNode{
+			head = &util.ListNode{
 				Val: sum,
 			}
 			tail = head
 		} else {
-			tail.Next = &common.ListNode{
+			tail.Next = &util.ListNode{
 				Val: sum,
 			}
 			tail = tail.Next
 		}
 	}
 	if carry > 0 {
-		tail.Next = &common.ListNode{
+		tail.Next = &util.ListNode{
 			Val: carry,
 		}
 	}
@@ -72,8 +72,8 @@ func AddTwoNumbers(l1, l2 *common.ListNode) *common.ListNode {
 	return head
 }
 
-func AddTwoNumbers2(l1 *common.ListNode, l2 *common.ListNode) *common.ListNode {
-	var head, tail *common.ListNode
+func AddTwoNumbers2(l1 *util.ListNode, l2 *util.ListNode) *util.ListNode {
+	var head, tail *util.ListNode
 	carry := 0
 
 	for l1 != nil || l2 != nil {
@@ -90,12 +90,12 @@ func AddTwoNumbers2(l1 *common.ListNode, l2 *common.ListNode) *common.ListNode {
 		sum = (v1 + v2 + carry)%10
 		carry = (v1 + v2 + carry)/10
 		if head == nil {
-			 head = &common.ListNode{
+			 head = &util.ListNode{
 			 	Val: sum,
 			 }
 			 tail = head
 		} else {
-			tail.Next = &common.ListNode{
+			tail.Next = &util.ListNode{
 				Val: sum,
 			}
 			tail = tail.Next
@@ -103,7 +103,7 @@ func AddTwoNumbers2(l1 *common.ListNode, l2 *common.ListNode) *common.ListNode {
 	}
 
 	if carry > 0 {
-		tail.Next = &common.ListNode{
+		tail.Next = &util.ListNode{
 			Val: carry,
 		}
 	}

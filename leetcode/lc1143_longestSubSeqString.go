@@ -2,7 +2,7 @@ package leetcode
 
 import (
 	"fmt"
-	"golang-acm/common"
+	"golang-acm/util"
 )
 
 /**
@@ -42,7 +42,7 @@ func longestCommonSubsequence(text1, text2 string) int {
 			if c1 == c2 {
 				dp[i+1][j+1] = dp[i][j] + 1
 			} else {
-				dp[i+1][j+1] = common.Max(dp[i][j+1], dp[i+1][j])
+				dp[i+1][j+1] = util.Max(dp[i][j+1], dp[i+1][j])
 			}
 		}
 	}
@@ -67,7 +67,7 @@ func LongestCommonSubSeq2(str1, str2 string) int {
 				dp[i][j] = dp[i - 1][j - 1] + 1
 			} else {
 				// 不等的话， 找到上边或者左边dp的最大值
-				dp[i][j] = common.Max(dp[i - 1][j], dp[i][j - 1])
+				dp[i][j] = util.Max(dp[i - 1][j], dp[i][j - 1])
 			}
 			fmt.Println(i, dp[i])
 		}

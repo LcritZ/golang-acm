@@ -1,7 +1,7 @@
 package leetcode
 
 import (
-	"golang-acm/common"
+	"golang-acm/util"
 )
 
 /**
@@ -10,7 +10,7 @@ import (
 链表重排
  */
 
-func ReorderList(head *common.ListNode) *common.ListNode {
+func ReorderList(head *util.ListNode) *util.ListNode {
 	if head == nil || head.Next == nil  {
 		return head
 	}
@@ -25,7 +25,7 @@ func ReorderList(head *common.ListNode) *common.ListNode {
 	return h1
 }
 
-func getMidNode(head *common.ListNode) *common.ListNode {
+func getMidNode(head *util.ListNode) *util.ListNode {
 	slow, fast := head, head
 	for fast.Next != nil && fast.Next.Next != nil {
 		slow = slow.Next
@@ -34,8 +34,8 @@ func getMidNode(head *common.ListNode) *common.ListNode {
 	return slow
 }
 
-func reverseList(head *common.ListNode) *common.ListNode {
-	var tail *common.ListNode = nil
+func reverseList(head *util.ListNode) *util.ListNode {
+	var tail *util.ListNode = nil
 	curr := head
 	for curr != nil {
 		next := curr.Next
@@ -46,7 +46,7 @@ func reverseList(head *common.ListNode) *common.ListNode {
 	return tail
 }
 
-func mergeList(h1, h2 *common.ListNode) *common.ListNode {
+func mergeList(h1, h2 *util.ListNode) *util.ListNode {
 	if h1 == nil {
 		return h2
 	}
@@ -65,11 +65,11 @@ func mergeList(h1, h2 *common.ListNode) *common.ListNode {
 2,3，4
 2,3,4,6
  */
-func reorderList2(head *common.ListNode) {
+func reorderList2(head *util.ListNode) {
 	if head == nil {
 		return
 	}
-	nodes := []*common.ListNode{}
+	nodes := []*util.ListNode{}
 	for node := head; node != nil; node = node.Next {
 		nodes = append(nodes, node)
 	}
