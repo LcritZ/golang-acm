@@ -2,7 +2,7 @@ package leetcode
 
 import (
 	"fmt"
-	"golang-acm/common"
+	"golang-acm/util"
 )
 
 /**
@@ -10,10 +10,10 @@ import (
 给你二叉搜索树的根节点 root ，该树中的两个节点被错误地交换。请在不改变其结构的情况下，恢复这棵树。
 
  */
-func recoverTree(root *common.TreeNode)  {
+func recoverTree(root *util.TreeNode)  {
 	nums := []int{}
-	var inorder func(node *common.TreeNode)
-	inorder = func(node *common.TreeNode) {
+	var inorder func(node *util.TreeNode)
+	inorder = func(node *util.TreeNode) {
 		if node == nil {
 			return
 		}
@@ -42,7 +42,7 @@ func findTwoSwapped(nums []int) (int, int) {
 	return x, y
 }
 
-func recover(root *common.TreeNode, count, x, y int) {
+func recover(root *util.TreeNode, count, x, y int) {
 	if root == nil {
 		return
 	}
@@ -62,8 +62,8 @@ func recover(root *common.TreeNode, count, x, y int) {
 }
 
 
-func recoverTree2(root *common.TreeNode)  {
-	var x, y, pred, predecessor *common.TreeNode
+func recoverTree2(root *util.TreeNode)  {
+	var x, y, pred, predecessor *util.TreeNode
 
 	for root != nil {
 		if root.Left != nil {

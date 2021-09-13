@@ -1,7 +1,7 @@
 package leetcode
 
 import (
-	"golang-acm/common"
+	"golang-acm/util"
 	"math"
 )
 
@@ -14,7 +14,7 @@ var MaxSum int
 
 
  */
-func MaxPathSum(root *common.TreeNode) int {
+func MaxPathSum(root *util.TreeNode) int {
 	if root == nil {
 		return 0
 	}
@@ -23,14 +23,14 @@ func MaxPathSum(root *common.TreeNode) int {
 	return MaxSum
 }
 
-func MaxPathSumHelper(root *common.TreeNode) int {
+func MaxPathSumHelper(root *util.TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	leftSum := common.Max(MaxPathSumHelper(root.Left), 0)
-	rightSum := common.Max(MaxPathSumHelper(root.Right), 0)
-	MaxSum = common.Max(leftSum+rightSum+root.Val, MaxSum)
-	curSum := common.Max(leftSum, rightSum)
+	leftSum := util.Max(MaxPathSumHelper(root.Left), 0)
+	rightSum := util.Max(MaxPathSumHelper(root.Right), 0)
+	MaxSum = util.Max(leftSum+rightSum+root.Val, MaxSum)
+	curSum := util.Max(leftSum, rightSum)
 	curSum += root.Val
 	return curSum
 }
