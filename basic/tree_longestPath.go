@@ -2,7 +2,6 @@ package basic
 
 import (
 	"golang-acm/util"
-	"golang-acm/leetcode"
 	"math"
 )
 
@@ -29,7 +28,7 @@ func LongestPathHelper(root *util.TreeNode) int {
 	}
 	leftPath := util.Max(LongestPathHelper(root.Left), 0)
 	rightPath := util.Max(LongestPathHelper(root.Right), 0)
-	leetcode.MaxSum = util.Max(leftPath+rightPath+1, leetcode.MaxSum)
+	longestPath = util.Max(leftPath+rightPath+1, longestPath)
 	curSum := util.Max(leftPath, leftPath)
 	curSum += 1
 	return curSum

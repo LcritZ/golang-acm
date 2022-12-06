@@ -64,6 +64,7 @@ func (l *ListNodes) Swap(i, j int) {
 	(*l)[i], (*l)[j] = (*l)[j], (*l)[i]
 }
 
+//取出最后一个
 func (l *ListNodes) Pop() interface{} {
 	n := len(*l)
 	x := (*l)[n-1]
@@ -96,6 +97,62 @@ func mergeKLists3(lists []*util.ListNode) *util.ListNode {
 	return head.Next
 }
 
+/**
+golang 的堆需要init，传入的interface需要实现几个方法才可以
+
+ */
+
+type pqList []*util.ListNode
+
+func (l *pqList) Len() int {
+	return len(*l)
+}
+
+func (l *pqList) Swap(i, j int)  {
+	(*l)[i], (*l)[j] = (*l)[j], (*l)[i]
+}
+
+func (l *pqList) Less(i, j int) bool {
+	return (*l)[i].Val <= (*l)[j].Val
+}
+
+func (l *pqList) Push(node interface{}) {
+	*l = append(*l, node.(*util.ListNode))
+}
+
+func (l *pqList) Pop() interface{} {
+	node := (*l)[l.Len()-1]
+	*l = (*l)[:l.Len()-1]
+	return node
+}
+
+
+
+
+func mergeKLists4(lists []*util.ListNode) *util.ListNode {
+	currNodes := &pqList{}
+	for i := 0; i < len(lists); i++ {
+		if lists[i] != nil {
+			*currNodes = append(*currNodes, lists[i])
+		}
+	}
+
+	heap.Init(currNodes)
+
+	dummy := &util.ListNode{}
+	temp := dummy
+	for currNodes.Len() > 0 {
+		node := heap.Pop(currNodes).(*util.ListNode)
+		temp.Next = node
+		if node.Next != nil {
+			heap.Push(currNodes, node.Next)
+		}
+		temp = temp.Next
+		//heap.
+	}
+
+	return dummy.Next
+}
 
 /**
  * Definition for singly-linked list.

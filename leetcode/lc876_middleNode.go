@@ -25,3 +25,13 @@ func middleNode(head *util.ListNode) *util.ListNode {
 	}
 	return slow
 }
+
+func middleNode2(head *util.ListNode) *util.ListNode {
+	dummy := &util.ListNode{Next: head}
+	slow, fast := dummy, head
+	for fast != nil && fast.Next != nil {
+		fast = fast.Next.Next
+		slow = slow.Next
+	}
+	return slow.Next
+}

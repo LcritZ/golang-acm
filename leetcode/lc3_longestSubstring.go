@@ -12,6 +12,9 @@ abcbefb
 dp[i][j] = dp[i][j-1] +1  dp[j] != dp[j-1]
 dp[i][j] = dp[i][j-1]
 
+滑动窗口，重要的处理点是边界，也就是left移动不能直接跳过，需要一步一步，用map存位置可能被right更新掉了
+
+移动left, 需要更新存的值
  */
 func LengthOfLongestSubstring(s string) int {
 	if len(s) == 0 || len(s) == 1 {
@@ -20,7 +23,7 @@ func LengthOfLongestSubstring(s string) int {
 	ans := 0
 	j := 0
 	charMap := map[byte]int{}
-	for i := 0; i < len(s); i++ {
+	for i := 0; i < len(s); {
 		for ; j < len(s) && charMap[s[j]] == 0; j++ {
 			charMap[s[j]]++
 		}
@@ -29,6 +32,7 @@ func LengthOfLongestSubstring(s string) int {
 			break
 		}
 		charMap[s[i]]--
+		i++
 	}
 
 	return ans
@@ -58,7 +62,7 @@ func GF_LengthOfLongestSubstring(s string) int {
 func LengthOfLongestSubstring2(s string) int {
 	n := len(s)
 	if n <= 1 {
-		return n;
+		return n
 	}
 	charCountMap := make([]int, 256) // 字符词频表
 	r := 0
@@ -100,4 +104,48 @@ func LengthOfLongestSubstring3(s string) int {
 		ans = util.Max(ans, i - dp[i] + 1)
 	}
 	return ans
+}
+
+//滑动窗口的解法
+func LengthOfLongestSubstring4(s string) int {
+	if len(s) < 2 {
+		return len(s)
+	}
+
+	left, right := 0, 0
+	//valid := true
+	length := 0
+	charMap := make(map[byte]int)
+	for right < len(s) {
+		fmt.Println(s[left:right])
+		charMap[s[right]]++
+		for charMap[s[right]] > 1 {
+			left++
+			charMap[s[left]]--
+		}
+		right++
+		length = util.Max(length, right-left)
+	}
+	return length
+}
+
+func LengthOfLongestSubstring5(s string) int {
+	if len(s) < 2 {
+		return len(s)
+	}
+
+	left, right := 0, 0
+	maxLen := 0
+	charMap := make(map[byte]int)
+	for right < len(s) {
+		charMap[s[right]]++
+		for charMap[s[right]] > 1 {
+			charMap[s[left]]--
+			left++
+		}
+		right++
+		maxLen = util.Max(maxLen, right-left)
+	}
+
+	return maxLen
 }

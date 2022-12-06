@@ -89,3 +89,76 @@ func partion(arr []int, low, high int) int {
 	arr[low] = temp
 	return low
 }
+
+func QuickSort3(nums []int, low, high int)  {
+	for low < high {
+		mid := helper3(nums, low, high)
+		QuickSort(nums, low, mid-1)
+		QuickSort(nums, mid+1, high)
+	}
+}
+
+func helper3(nums []int, low, high int) int {
+	mid := nums[low]
+	for low < high {
+		for low < high && nums[high] > mid {
+			high--
+		}
+		nums[low] = nums[high]
+		for low < high && nums[low] <= mid {
+			low++
+		}
+		nums[high] = nums[low]
+	}
+
+	nums[low] = mid
+	return low
+}
+
+func MergeSort(nums []int) []int {
+	if len(nums) == 0 {
+		return []int{}
+	}
+
+	res := []int{}
+	var sortHelper func(nums []int, low, high int) []int
+	sortHelper = func(nums []int, low, high int) []int {
+		if len(nums) == 0 {
+			return []int{}
+		}
+		if low == high {
+			return nums[low:low+1]
+		}
+
+		mid := (low+high)>>1
+		n1 := sortHelper(nums, low, mid)
+		n2 := sortHelper(nums, mid+1, high)
+		temp := []int{}
+		i := 0
+		j := 0
+		for i < len(n1) && j < len(n2) {
+			if n1[i] <= n2[j] {
+				temp = append(temp, n1[i])
+				i++
+			} else {
+				temp = append(temp, n2[j])
+				j++
+			}
+		}
+
+		if i < len(n1) {
+			temp = append(temp, n1[i:]...)
+		} else {
+			temp = append(temp, n2[j:]...)
+		}
+		if len(n1)+len(n2) == len(nums) {
+			res = make([]int, len(nums))
+			copy(res, temp)
+		}
+
+		return temp
+	}
+
+	sortHelper(nums, 0, len(nums)-1)
+	return res
+}

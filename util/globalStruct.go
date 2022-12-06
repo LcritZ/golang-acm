@@ -23,6 +23,18 @@ type RandomListNode struct {
 	Random *RandomListNode
 }
 
+type SpecialTreeNode struct {
+	Val int
+	Left *SpecialTreeNode
+	Right *SpecialTreeNode
+	Next *SpecialTreeNode
+}
+
+type MultiTreeNode struct {
+    Val int
+    Children []*MultiTreeNode
+}
+
 func Max(a, b int) int {
 	if a >= b {
 		return a

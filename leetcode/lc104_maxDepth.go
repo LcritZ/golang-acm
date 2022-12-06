@@ -4,7 +4,9 @@ import (
 	"golang-acm/util"
 )
 
-
+/**
+求最大深度，后续遍历的方法
+ */
 func maxDepth(root *util.TreeNode) int {
 	if root == nil {
 		return 0

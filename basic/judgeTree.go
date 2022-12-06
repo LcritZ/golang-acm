@@ -28,5 +28,3 @@ func JudgeTree(root *util.TreeNode) (bool, int) {
 	}
 	return false, 0
 }
-
-

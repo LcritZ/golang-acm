@@ -8,10 +8,10 @@ func detectCycle(head *util.ListNode) *util.ListNode {
 	}
 	slow, fast := head, head
 	for fast != nil {
-		slow = slow.Next
 		if fast.Next == nil {
 			return nil
 		}
+		slow = slow.Next
 		fast = fast.Next.Next
 		if fast == slow {
 			temp := head
