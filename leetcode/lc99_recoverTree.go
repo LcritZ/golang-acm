@@ -101,3 +101,28 @@ func recoverTree2(root *util.TreeNode)  {
 	}
 	x.Val, y.Val = y.Val, x.Val
 }
+
+//维护前一个节点即可
+func GF_recoverTree3(root *util.TreeNode)  {
+	stack := []*util.TreeNode{}
+	var x, y, pred *util.TreeNode
+	for len(stack) > 0 || root != nil {
+		for root != nil {
+			stack = append(stack, root)
+			root = root.Left
+		}
+		root = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		if pred != nil && root.Val < pred.Val {
+			y = root
+			if x == nil {
+				x = pred
+			} else {
+				break
+			}
+		}
+		pred = root
+		root = root.Right
+	}
+	x.Val, y.Val = y.Val, x.Val
+}

@@ -34,7 +34,6 @@ func IsValid(str string) bool {
 				fmt.Println("]--")
 				return false
 			}
-
 		}
 	}
 

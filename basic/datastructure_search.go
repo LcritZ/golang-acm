@@ -64,38 +64,37 @@ func BinarySearchNoRecursion(arr []int, target int) bool {
 	}
 	low := 0
 	high := len(arr)-1
-	for low < high {
+	for low <= high {
 		mid := low + (high-low)/2
-		fmt.Println(arr[low:high+1])
 		if target == arr[mid] {
 			return true
 		}
 		if target > arr[mid] {
-			low = mid
+			low = mid+1
 		} else {
-			high = mid
+			high = mid-1
 		}
 	}
 	return false
 }
 
-func BinarySearchNoRecursion2(arr []int, target int) int {
+//左侧边界写法 核心思想是right需要开区间
+func BinarySearchNoRecursion2(arr []int, target int) bool {
 	if len(arr) == 0 {
-		return -1
+		return false
 	}
 	low := 0
-	high := len(arr)-1
+	high := len(arr)
 	for low < high {
 		mid := low + (high-low)/2
-		fmt.Println(arr[low:high+1])
 		if target == arr[mid] {
-			return mid
+			return true
 		}
 		if target > arr[mid] {
-			low = mid
+			low = mid+1
 		} else {
 			high = mid
 		}
 	}
-	return -1
+	return false
 }

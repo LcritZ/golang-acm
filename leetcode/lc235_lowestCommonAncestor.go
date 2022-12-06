@@ -27,15 +27,35 @@ func lowestCommonAncestor(root, p, q *util.TreeNode) (ancestor *util.TreeNode) {
 	return
 }
 
-func lowestCommonAncestor2(root, p, q *util.TreeNode) (ancestor *util.TreeNode) {
-	ancestor = root
-	for {
-		if p.Val < ancestor.Val && q.Val < ancestor.Val {
-			ancestor = ancestor.Left
-		} else if p.Val > ancestor.Val && q.Val > ancestor.Val {
-			ancestor = ancestor.Right
-		} else {
-			return
-		}
+func lowestCommonAncestor2(root, p, q *util.TreeNode) *util.TreeNode {
+	if root == nil {
+		return nil
 	}
+	if root.Val == p.Val || root.Val == q.Val {
+		return root
+	}
+	left := lowestCommonAncestor(root.Left, p, q)
+	right := lowestCommonAncestor(root.Right, p, q)
+	if left != nil && right != nil {
+		return root
+	}
+	if left == nil {
+		return right
+	}
+	return left
 }
+
+
+
+//func lowestCommonAncestor2(root, p, q *util.TreeNode) *util.TreeNode {
+//	ancestor := root
+//	for {
+//		if p.Val < ancestor.Val && q.Val < ancestor.Val {
+//			ancestor = ancestor.Left
+//		} else if p.Val > ancestor.Val && q.Val > ancestor.Val {
+//			ancestor = ancestor.Right
+//		} else {
+//			return ancestor
+//		}
+//	}
+//}

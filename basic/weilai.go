@@ -1,51 +1,82 @@
 package basic
 
-import "golang-acm/util"
+import (
+    "fmt"
+    "golang-acm/util"
+)
 
-/**
-完全二叉树 所有节点数
-var hight
+func PrintTree(root *util.TreeNode) [][]int {
+    res := [][]int{}
+    if root == nil {
+        return res
+    }
 
-4  3满的  2*n-1
+    count := 1
+    nextCount := 0
+    temp := []int{}
+    nodeArr := []*util.TreeNode{root}
+    for len(nodeArr) > 0 {
+        node := nodeArr[0]
+        temp = append(temp, node.Val)
+        count--
+        nodeArr = nodeArr[1:]
+        if node.Left != nil {
+            nodeArr = append(nodeArr, node.Left)
+            nextCount++
+        }
+        if node.Right != nil {
+            nodeArr = append(nodeArr, node.Right)
+            nextCount++
+        }
 
-n层
-n-1层  M个节点
-2*(n-1) -1 + 2*(M-1) +  M的左或空
+        if count == 0 {
+            curr := make([]int, len(temp))
+            copy(curr, temp)
+            res = append(res, curr)
+            temp = []int{}
+            count = nextCount
+            nextCount = 0
+        }
+    }
 
-K个节点 P个
-K-P
+    return res
+}
 
-node.Left
+func PrintTree2(root *util.TreeNode) {
+    if root == nil {
+        return
+    }
 
-
-       1
-    3     4
-  2   3  6
-
- */
-
-
-func getNodeNum(root *util.TreeNode) int {
-	if root == nil {
-		return 0
-	}
-	ans := 0
-	arr := []*util.TreeNode{root}
-
-	for len(arr) != 0 {
-		node := arr[0]
-		ans++
-		if node.Left != nil {
-			arr = append(arr, node.Left)
-		}
-		if node.Right != nil {
-			arr = append(arr, node.Right)
-		}
-		if len(arr) > 1 {
-			arr = arr[1:]
-		} else {
-			break
-		}
-	}
-	return ans
+    nodeArr := []*util.TreeNode{root}
+    first := true
+    flag := false
+    for len(nodeArr) > 0 && (flag || first) {
+        length := len(nodeArr)
+        i := 0
+        s := ""
+        flag = false
+        for ; (flag || first) && i < length; i++ {
+            node := nodeArr[0]
+            nodeArr = nodeArr[1:]
+            if node != nil {
+                s += fmt.Sprintf("%d, ", node.Val)
+            } else {
+                s += "#, "
+            }
+            if node != nil && node.Left != nil {
+                nodeArr = append(nodeArr, node.Left)
+                flag = true
+            } else {
+                nodeArr = append(nodeArr, nil)
+            }
+            if node != nil && node.Right != nil {
+                nodeArr = append(nodeArr, node.Right)
+                flag = true
+            } else {
+                nodeArr = append(nodeArr, nil)
+            }
+        }
+        fmt.Println(s)
+        first = flag
+    }
 }

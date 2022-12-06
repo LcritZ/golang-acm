@@ -1,6 +1,6 @@
 package basic
 
-import "util"
+import "golang-acm/util"
 
 func DeleteNode(pHead *util.ListNode, val int) *util.ListNode {
 	if pHead == nil {

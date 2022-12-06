@@ -4,6 +4,8 @@ import "fmt"
 
 /**
 最长回文字符串
+
+双指针移动下标
  */
 func LongestSubstring(s string) string {
 
@@ -28,7 +30,7 @@ func LongestSubstring(s string) string {
 
 func substringHelper(s string, left, right int) (int, int) {
 	//轮询
-	for ; left >= 0 && right < len(s) && s[left] == s[right]; {
+	for left >= 0 && right < len(s) && s[left] == s[right] {
 		left, right = left-1, right+1
 	}
 	//回退

@@ -1,5 +1,7 @@
 package leetcode
 
+import "golang-acm/util"
+
 func MaxSubArray(nums []int) int {
 	if len(nums) == 0 {
 		return 0
@@ -35,3 +37,16 @@ func GF_maxSubArray(nums []int) int {
 	return max
 }
 
+//如果加上前面的更大，就加他
+func maxSubArray2(nums []int) int {
+
+	max := nums[0]
+	for i := 1; i < len(nums); i++ {
+		if nums[i]+nums[i-1] > nums[i] {
+			nums[i] += nums[i-1]
+		}
+		max = util.Max(max, nums[i])
+	}
+
+	return max
+}

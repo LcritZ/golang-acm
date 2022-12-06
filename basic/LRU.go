@@ -70,6 +70,7 @@ func (cache *LRUCache) Remove(node *Node)  {
 			node.Next.Prev = nil
 		}
 		node.Next = nil
+
 		return
 	}
 	if node == cache.Tail {
@@ -82,7 +83,3 @@ func (cache *LRUCache) Remove(node *Node)  {
 	node.Prev.Next = node.Next
 	node.Next.Prev = node.Prev
 }
-
-
-
-

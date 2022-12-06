@@ -26,9 +26,6 @@ dp[3][2] = 1
 dp[3][3] = 2  = dp[2][2] +1
 dp[3][1] = 1
 
-
-
-
  */
 
 func longestCommonSubsequence(text1, text2 string) int {

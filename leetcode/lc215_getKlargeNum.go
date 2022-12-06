@@ -42,17 +42,17 @@ func getK(arr []int, k int) (int, bool) {
 	if len(arr) == 0 || k <= 0 || k > len(arr) {
 		return 0, false
 	}
-	sort(arr, 0, len(arr)-1)
+	sortHelper(arr, 0, len(arr)-1)
 	fmt.Println(arr)
 	index := len(arr) - k
 	return arr[index], true
 }
 
-func sort(arr []int, low, high int) {
+func sortHelper(arr []int, low, high int) {
 	if low < high {
 		mid := helper215(arr, low, high)
-		sort(arr, low, mid-1)
-		sort(arr, mid+1, high)
+		sortHelper(arr, low, mid-1)
+		sortHelper(arr, mid+1, high)
 	}
 }
 
