@@ -5,7 +5,7 @@ import "golang-acm/util"
 /**
 前序和中序遍历
 
- */
+*/
 func buildTree105(preorder []int, inorder []int) *util.TreeNode {
 
     if len(preorder) != len(inorder) || len(preorder) == 0 {
@@ -21,10 +21,8 @@ func buildTree105(preorder []int, inorder []int) *util.TreeNode {
         }
     }
 
-
     root.Left = buildTree105(preorder[1:1+index], inorder[0:index])
     root.Right = buildTree105(preorder[1+index:], inorder[index+1:])
-
 
     return root
 }
