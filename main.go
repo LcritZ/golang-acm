@@ -3,12 +3,13 @@ package main
 import (
 	"fmt"
 	"golang-acm/leetcode"
+	"golang-acm/util"
 )
 
 func main() {
 
-	res := leetcode.GetModifiedArray(5, [][]int{{1,3,2}, {2,4,3}, {0,2,-2}})
-	fmt.Println(res)
+	//res := leetcode.GetModifiedArray(5, [][]int{{1,3,2}, {2,4,3}, {0,2,-2}})
+	//fmt.Println(res)
 
 	//n := 4
 	//nums := [][]int{{1,2}, {1,3}, {2,4}}
@@ -166,29 +167,38 @@ func main() {
     //nums := []int{100,4,200,1,3,2}
     //fmt.Println(leetcode.LongestConsecutive(nums))
 
+	/**
+	      5
+	    3    7
+	  1  4  6  8
+	 */
+
     //root := &util.TreeNode{
-    //    Val: 5,
+    //   Val: 5,
     //}
     //
     //root.Left = &util.TreeNode{
-    //    Val: 3,
+    //   Val: 3,
     //}
     //
     //root.Right = &util.TreeNode{
-    //    Val: 7,
+    //   Val: 7,
     //}
     //root.Left.Left = &util.TreeNode{
-    //    Val: 1,
+    //   Val: 1,
     //}
     //root.Left.Right = &util.TreeNode{
-    //    Val: 4,
+    //   Val: 4,
     //}
     //root.Right.Left = &util.TreeNode{
-    //    Val: 6,
+    //   Val: 6,
     //}
     //root.Right.Right = &util.TreeNode{
-    //    Val: 8,
+    //   Val: 8,
     //}
+    //
+    //res := leetcode.LevelOrderBinaryTree(root)
+	//fmt.Printf("%+v", res)
 
     //res := basic.Tree2List(root)
     //
@@ -389,21 +399,21 @@ func main() {
 	////res := leetcode.GF_IsOneBitCharacter(bits)
 	//fmt.Println(res)
 
-	//l1 := &util.ListNode{
-	//	Val: 1,
-	//}
-	//l1.Next = &util.ListNode{
-	//	Val: 2,
-	//}
-	//l1.Next.Next = &util.ListNode{
-	//	Val: 3,
-	//}
-	//l1.Next.Next.Next = &util.ListNode{
-	//	Val: 2,
-	//}
-	//l1.Next.Next.Next.Next = &util.ListNode{
-	//	Val: 1,
-	//}
+	l1 := &util.ListNode{
+		Val: 1,
+	}
+	l1.Next = &util.ListNode{
+		Val: 2,
+	}
+	l1.Next.Next = &util.ListNode{
+		Val: 3,
+	}
+	l1.Next.Next.Next = &util.ListNode{
+		Val: 4,
+	}
+	l1.Next.Next.Next.Next = &util.ListNode{
+		Val: 5,
+	}
     //res:= leetcode.IsPalindromeList(l1)
     //fmt.Println(res)
 
@@ -415,12 +425,12 @@ func main() {
 	//	res = res.Next
 	//}
 
-	//res := leetcode.ReverseBetween2(l1, 2,4)
-	//fmt.Println("--")
-	//for res != nil {
-	//	fmt.Println(res.Val)
-	//	res = res.Next
-	//}
+	res := leetcode.ReverseBetween2(l1, 1,5)
+	fmt.Println("--")
+	for res != nil {
+		fmt.Println(res.Val)
+		res = res.Next
+	}
 	//for l1 != nil {
 	//	fmt.Println(l1.Val)
 	//	l1 = l1.Next
