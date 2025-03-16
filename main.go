@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	"golang-acm/leetcode"
-	"golang-acm/util"
+	"golang-acm/acm_2025"
 )
 
 func main() {
@@ -31,7 +30,6 @@ func main() {
 	//		fmt.Println(i, n/i, "-----")
 	//	}
 	//}
-
 
 	//fmt.Println(strings.TrimSpace("  42"))
 	//fmt.Println(leetcode.CountNumbersWithUniqueDigits(5))
@@ -66,7 +64,6 @@ func main() {
 	//res := basic.MergeSort(nums)
 	//fmt.Println(res)
 
-
 	//leetcode.SortArray(nums)
 	//leetcode.QuickSort(nums, 0 , 5)
 	//fmt.Println(nums)
@@ -74,141 +71,140 @@ func main() {
 	//basic.QuickSort2(nums, 0, 5)
 	//fmt.Println(nums)
 
-    //4,2,1,3,8,7,5,6
-    //head := &util.ListNode{
-    //    Val: 4,
-    //}
-    //
-    //head.Next = &util.ListNode{
-    //    Val: 2,
-    //}
-    //
-    //head.Next.Next = &util.ListNode{
-    //    Val: 1,
-    //}
-    //
-    //head.Next.Next.Next = &util.ListNode{
-    //    Val: 3,
-    //}
-    //head.Next.Next.Next.Next = &util.ListNode{
-    //    Val: 8,
-    //}
-    //head.Next.Next.Next.Next.Next = &util.ListNode{
-    //    Val: 7,
-    //}
-    //
-    //head.Next.Next.Next.Next.Next.Next = &util.ListNode{
-    //    Val: 5,
-    //}
-    //head.Next.Next.Next.Next.Next.Next.Next = &util.ListNode{
-    //    Val: 6,
-    //}
-    //
-    //res := leetcode.SortList(head)
-    //for res != nil {
-    //    fmt.Println(res.Val)
-    //    res = res.Next
-    //}
+	//4,2,1,3,8,7,5,6
+	//head := &util.ListNode{
+	//    Val: 4,
+	//}
+	//
+	//head.Next = &util.ListNode{
+	//    Val: 2,
+	//}
+	//
+	//head.Next.Next = &util.ListNode{
+	//    Val: 1,
+	//}
+	//
+	//head.Next.Next.Next = &util.ListNode{
+	//    Val: 3,
+	//}
+	//head.Next.Next.Next.Next = &util.ListNode{
+	//    Val: 8,
+	//}
+	//head.Next.Next.Next.Next.Next = &util.ListNode{
+	//    Val: 7,
+	//}
+	//
+	//head.Next.Next.Next.Next.Next.Next = &util.ListNode{
+	//    Val: 5,
+	//}
+	//head.Next.Next.Next.Next.Next.Next.Next = &util.ListNode{
+	//    Val: 6,
+	//}
+	//
+	//res := leetcode.SortList(head)
+	//for res != nil {
+	//    fmt.Println(res.Val)
+	//    res = res.Next
+	//}
 
-    //res := leetcode.InsertionSortList(head)
-    //for res != nil {
-    //    fmt.Println(res.Val)
-    //    res = res.Next
-    //}
+	//res := leetcode.InsertionSortList(head)
+	//for res != nil {
+	//    fmt.Println(res.Val)
+	//    res = res.Next
+	//}
 
-    //[12,1],[2],[15,11],[5,2],[1,15],[4,2],[5],[15,15]]
-    //cache := leetcode.ConstructorLRU(2)
-    //
-    //fmt.Println(cache.Get(6))
-    //fmt.Println(cache.Get(8))
-    //cache.Put(12,1)
-    //fmt.Println(cache.Get(2))
-    //cache.Put(15,11)
-    ////cache.Add(head)
-    //cache.Put(5,2)
-    //fmt.Println("-------")
-    //fmt.Println(cache.Tail.Val)
-    //cache.Put(1,15)
-    //fmt.Println(cache.Tail.Val)
-    //
-    //cache.Put(4,2)
-    //fmt.Println("-------")
-    //fmt.Println(cache.Get(5))
-    //
-    //cache.Put(15,15)
+	//[12,1],[2],[15,11],[5,2],[1,15],[4,2],[5],[15,15]]
+	//cache := leetcode.ConstructorLRU(2)
+	//
+	//fmt.Println(cache.Get(6))
+	//fmt.Println(cache.Get(8))
+	//cache.Put(12,1)
+	//fmt.Println(cache.Get(2))
+	//cache.Put(15,11)
+	////cache.Add(head)
+	//cache.Put(5,2)
+	//fmt.Println("-------")
+	//fmt.Println(cache.Tail.Val)
+	//cache.Put(1,15)
+	//fmt.Println(cache.Tail.Val)
+	//
+	//cache.Put(4,2)
+	//fmt.Println("-------")
+	//fmt.Println(cache.Get(5))
+	//
+	//cache.Put(15,15)
 
-    //cache.Remove(tail)
-    //fmt.Println("-------")
-    //fmt.Println(cache.Head.Val)
-    //fmt.Println(cache.Tail.Val)
-    //
-    //fmt.Println(len(cache.Keys))
+	//cache.Remove(tail)
+	//fmt.Println("-------")
+	//fmt.Println(cache.Head.Val)
+	//fmt.Println(cache.Tail.Val)
+	//
+	//fmt.Println(len(cache.Keys))
 
-    //nums := []int{-2,3,-4}
-    //fmt.Println(leetcode.MaxProduct(nums))
+	//nums := []int{-2,3,-4}
+	//fmt.Println(leetcode.MaxProduct(nums))
 
-    //head := &util.ListNode{Val: 3}
-    //head.Next = &util.ListNode{Val: 2}
-    //head.Next.Next = &util.ListNode{Val: 0}
-    //head.Next.Next.Next = &util.ListNode{Val: 4}
-    //head.Next.Next.Next.Next = head.Next
-    //res := leetcode.DetectCycle(head)
-    //fmt.Println(res.Val)
-    //s := "leetcode"
-    //wordDict := []string{"leet", "code"}
-    //res := leetcode.WordBreak(s, wordDict)
-    //fmt.Println(res)
+	//head := &util.ListNode{Val: 3}
+	//head.Next = &util.ListNode{Val: 2}
+	//head.Next.Next = &util.ListNode{Val: 0}
+	//head.Next.Next.Next = &util.ListNode{Val: 4}
+	//head.Next.Next.Next.Next = head.Next
+	//res := leetcode.DetectCycle(head)
+	//fmt.Println(res.Val)
+	//s := "leetcode"
+	//wordDict := []string{"leet", "code"}
+	//res := leetcode.WordBreak(s, wordDict)
+	//fmt.Println(res)
 
-    //fmt.Println(0^3)
-    //fmt.Println("----")
-    //nums := []int{2,2,3,4,4}
-    //fmt.Println(leetcode.SingleNumber(nums))
+	//fmt.Println(0^3)
+	//fmt.Println("----")
+	//nums := []int{2,2,3,4,4}
+	//fmt.Println(leetcode.SingleNumber(nums))
 
-    //nums := []int{100,4,200,1,3,2}
-    //fmt.Println(leetcode.LongestConsecutive(nums))
+	//nums := []int{100,4,200,1,3,2}
+	//fmt.Println(leetcode.LongestConsecutive(nums))
 
 	/**
 	      5
 	    3    7
 	  1  4  6  8
-	 */
+	*/
 
-    //root := &util.TreeNode{
-    //   Val: 5,
-    //}
-    //
-    //root.Left = &util.TreeNode{
-    //   Val: 3,
-    //}
-    //
-    //root.Right = &util.TreeNode{
-    //   Val: 7,
-    //}
-    //root.Left.Left = &util.TreeNode{
-    //   Val: 1,
-    //}
-    //root.Left.Right = &util.TreeNode{
-    //   Val: 4,
-    //}
-    //root.Right.Left = &util.TreeNode{
-    //   Val: 6,
-    //}
-    //root.Right.Right = &util.TreeNode{
-    //   Val: 8,
-    //}
-    //
-    //res := leetcode.LevelOrderBinaryTree(root)
+	//root := &util.TreeNode{
+	//   Val: 5,
+	//}
+	//
+	//root.Left = &util.TreeNode{
+	//   Val: 3,
+	//}
+	//
+	//root.Right = &util.TreeNode{
+	//   Val: 7,
+	//}
+	//root.Left.Left = &util.TreeNode{
+	//   Val: 1,
+	//}
+	//root.Left.Right = &util.TreeNode{
+	//   Val: 4,
+	//}
+	//root.Right.Left = &util.TreeNode{
+	//   Val: 6,
+	//}
+	//root.Right.Right = &util.TreeNode{
+	//   Val: 8,
+	//}
+	//
+	//res := leetcode.LevelOrderBinaryTree(root)
 	//fmt.Printf("%+v", res)
 
-    //res := basic.Tree2List(root)
-    //
-    //for res != nil {
-    //    fmt.Println(res.Val)
-    //    res = res.Right
-    //}
+	//res := basic.Tree2List(root)
+	//
+	//for res != nil {
+	//    fmt.Println(res.Val)
+	//    res = res.Right
+	//}
 
-
-    //nums := [][]int{}
+	//nums := [][]int{}
 	//nums = append(nums, []int{1,2})
 	//nums = append(nums, []int{1,4})
 	//nums = append(nums, []int{3,4})
@@ -220,62 +216,61 @@ func main() {
 	//res := leetcode.MinDistance(word1, word2)
 	//fmt.Println(res)
 
-    //nums := []int{0,1,1,2,0,1,0,2}
-    //leetcode.SortColors(nums)
-    //fmt.Println(nums)
+	//nums := []int{0,1,1,2,0,1,0,2}
+	//leetcode.SortColors(nums)
+	//fmt.Println(nums)
 
-    //root := &util.TreeNode{
-    //    Val: 1,
-    //}
-    //root.Left = &util.TreeNode{
-    //    Val: 2,
-    //}
-    //root.Right = &util.TreeNode{
-    //    Val: 3,
-    //}
-    //
-    //root.Right.Right = &util.TreeNode{
-    //    Val: 4,
-    //}
-    //
-    //basic.PrintTree2(root)
+	//root := &util.TreeNode{
+	//    Val: 1,
+	//}
+	//root.Left = &util.TreeNode{
+	//    Val: 2,
+	//}
+	//root.Right = &util.TreeNode{
+	//    Val: 3,
+	//}
+	//
+	//root.Right.Right = &util.TreeNode{
+	//    Val: 4,
+	//}
+	//
+	//basic.PrintTree2(root)
 
-    //s1 := "hhhelworldhhello"
-    //s2 := "hhell"
-    //
-    //fmt.Println(leetcode.StrStr(s1, s2))
+	//s1 := "hhhelworldhhello"
+	//s2 := "hhell"
+	//
+	//fmt.Println(leetcode.StrStr(s1, s2))
 
-    //candi := []int{10,1,2,7,6,1,5}
-    //fmt.Println(leetcode.CombinationSum40(candi, 8))
+	//candi := []int{10,1,2,7,6,1,5}
+	//fmt.Println(leetcode.CombinationSum40(candi, 8))
 
+	//
+	//fmt.Println(nums)
 
-    //
-    //fmt.Println(nums)
+	//nums := []int{7,7}
+	//res := leetcode.SearchRange(nums, 7)
+	//fmt.Println(res)
 
-    //nums := []int{7,7}
-    //res := leetcode.SearchRange(nums, 7)
-    //fmt.Println(res)
+	//nums := []int{4,5,6,7,0,1,2}
+	//res := leetcode.Search33_2(nums, 4)
+	//fmt.Println(res)
 
-    //nums := []int{4,5,6,7,0,1,2}
-    //res := leetcode.Search33_2(nums, 4)
-    //fmt.Println(res)
+	//s := "()(()"
+	//
+	//fmt.Println(leetcode.LongestValidParentheses(s))
 
-    //s := "()(()"
-    //
-    //fmt.Println(leetcode.LongestValidParentheses(s))
+	//nums := []int{5,4,7,5,3,2}
+	//leetcode.NextPermutation(nums)
+	//fmt.Println(nums)
 
-    //nums := []int{5,4,7,5,3,2}
-    //leetcode.NextPermutation(nums)
-    //fmt.Println(nums)
-
-    //fmt.Println(leetcode.GenerateParenthesis(3))
-    //
-    //s := "abcde"
-    //fmt.Println(s[0:1])
-    //
-    //for _, i := range s {
-    //    fmt.Printf("%c ", i)
-    //}
+	fmt.Println(acm_2025.GenerateParenthesis(3))
+	//
+	//s := "abcde"
+	//fmt.Println(s[0:1])
+	//
+	//for _, i := range s {
+	//    fmt.Printf("%c ", i)
+	//}
 
 	//a := make(map[int]int,3)
 	//a[1] = 3
@@ -345,7 +340,6 @@ func main() {
 	//nums := []int{0,1,0,3,12}
 	//leetcode.MoveZeroes(nums)
 
-
 	//nums := []int{1}
 	//res := leetcode.RemoveElement(nums, 1)
 	//fmt.Println(res)
@@ -377,7 +371,6 @@ func main() {
 	//res := leetcode.MinWindow2(s, t)
 	//fmt.Println(res)
 
-
 	//bookings := [][]int{{3,2,7},{3,7,9},{8,3,9}}
 	//res := leetcode.CarPooling(bookings, 11)
 	//fmt.Println(res)
@@ -399,43 +392,41 @@ func main() {
 	////res := leetcode.GF_IsOneBitCharacter(bits)
 	//fmt.Println(res)
 
-	l1 := &util.ListNode{
-		Val: 1,
-	}
-	l1.Next = &util.ListNode{
-		Val: 2,
-	}
-	l1.Next.Next = &util.ListNode{
-		Val: 3,
-	}
-	l1.Next.Next.Next = &util.ListNode{
-		Val: 4,
-	}
-	l1.Next.Next.Next.Next = &util.ListNode{
-		Val: 5,
-	}
-    //res:= leetcode.IsPalindromeList(l1)
-    //fmt.Println(res)
+	//l1 := &util.ListNode{
+	//	Val: 1,
+	//}
+	//l1.Next = &util.ListNode{
+	//	Val: 2,
+	//}
+	//l1.Next.Next = &util.ListNode{
+	//	Val: 3,
+	//}
+	//l1.Next.Next.Next = &util.ListNode{
+	//	Val: 4,
+	//}
+	//l1.Next.Next.Next.Next = &util.ListNode{
+	//	Val: 5,
+	//}
+	//res:= leetcode.IsPalindromeList(l1)
+	//fmt.Println(res)
 
-
-    //res := leetcode.ReverseList(l1)
+	//res := leetcode.ReverseList(l1)
 	//fmt.Println("--")
 	//for res != nil {
 	//	fmt.Println(res.Val)
 	//	res = res.Next
 	//}
 
-	res := leetcode.ReverseBetween2(l1, 1,5)
-	fmt.Println("--")
-	for res != nil {
-		fmt.Println(res.Val)
-		res = res.Next
-	}
+	//res := leetcode.ReverseBetween2(l1, 1, 5)
+	//fmt.Println("--")
+	//for res != nil {
+	//	fmt.Println(res.Val)
+	//	res = res.Next
+	//}
 	//for l1 != nil {
 	//	fmt.Println(l1.Val)
 	//	l1 = l1.Next
 	//}
-
 
 	//res:= leetcode.MajorityElement([]int{1,2,2,3,3,3,2,2,2})
 	//fmt.Println(res)
@@ -462,7 +453,7 @@ func main() {
 	//	Val: 5,
 	//}
 	//
-	//res:= leetcode.MergeTwoLists2(l1, l2)
+	//res := acm_2025.MergeTwoLists(l1, l2)
 	//for res != nil {
 	//	fmt.Println(res.Val)
 	//	res = res.Next
@@ -499,7 +490,6 @@ func main() {
 	//	Right: r1,
 	//	Left: l1,
 	//}
-
 
 	//leetcode.Flatten(root)
 	//fmt.Print(root.Right.Val, root.Right.Right.Val, root.Right.Right.Right.Val, )
